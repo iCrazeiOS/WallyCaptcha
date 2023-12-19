@@ -11,9 +11,6 @@ function submitPressed() {
 	const inputField = document.getElementById("captcha-input");
 	const value = inputField.value;
 
-	console.log(value);
-	console.log(coordinates);
-
 	if (value.toLowerCase() === coordinates.toLowerCase()) {
 		alert("You are not a robot!");
 	} else {
@@ -31,8 +28,6 @@ document.addEventListener("DOMContentLoaded", function() {
 	image.src = `images/${coordinates}.png`;
 
 	image.addEventListener("load", function() {
-		console.log("image loaded");
-
 		/* add gridlines to image */
 		const canvas = document.createElement("canvas");
 		canvas.id = "captcha-image";
@@ -50,10 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		ctx.strokeStyle = "black";
 		ctx.lineWidth = 2;
 
-		console.log(canvas.width, canvas.height);
-
 		for (let x = 0; x < canvas.width + 1; x += SPACING) {
-			console.log(x);
 			ctx.beginPath();
 			ctx.moveTo(x, 0);
 			ctx.lineTo(x, canvas.height);
@@ -61,7 +53,6 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 
 		for (let y = 0; y < canvas.height + 1; y += SPACING) {
-			console.log(y);
 			ctx.beginPath();
 			ctx.moveTo(0, y);
 			ctx.lineTo(canvas.width, y);
